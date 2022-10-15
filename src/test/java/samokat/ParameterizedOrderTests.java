@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 @RunWith(Parameterized.class)
 public class ParameterizedOrderTests {
 
+    private final String positionOrderButton;
     private final String name;
     private final String surname;
     private final String address;
@@ -27,8 +28,9 @@ public class ParameterizedOrderTests {
     private final String comment;
 
 
-    public ParameterizedOrderTests(String name, String surname, String address, String phoneNumber
+    public ParameterizedOrderTests(String positionOrderButton, String name, String surname, String address, String phoneNumber
         , String date, String rentalPeriod, String comment) {
+        this.positionOrderButton = positionOrderButton;
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -56,10 +58,10 @@ public class ParameterizedOrderTests {
     public static Object[][] getSamokatData() {
         //Сгенерируй тестовые данные (нам нужно название городов и результат поиска)
         return new Object[][]{
-                {"Роман", "Криворуков", "Москва, Кутузовский пр-т, д. 34","+79150719999",
+                {"1","Роман", "Криворуков", "Москва, Кутузовский пр-т, д. 34","+79150719999",
                         "13.10.2022","сутки","Прошу перезвонить за 10 минут до прибытия" },
-                {"Илья", "Иванов", "Серпухов, Стадионная, д. 34","+79175459999",
-                        "15.10.2022","двое суток","Прошу перезвонить за 30 минут" }
+                {"2","Илья", "Иванов", "Серпухов, Стадионная, д. 34","+79175459999",
+                        "13.10.2022","двое суток","Прошу перезвонить за 30 минут" }
         };
 
     }
@@ -92,7 +94,7 @@ public class ParameterizedOrderTests {
         mainPage = new MainPage(webDriver);
         mainPage.open();
         mainPage.clickCookieButton();
-        mainPage.clickOrderButton();
+        mainPage.clickOrderButtonByPosition(this.positionOrderButton);
 
         orderPage = new OrderPage(webDriver);
         orderPage.enterName(this.name);

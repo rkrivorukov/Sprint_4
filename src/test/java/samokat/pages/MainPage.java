@@ -21,10 +21,12 @@ public class MainPage {
     public void clickCookieButton(){
         webDriver.findElement(By.id("rcc-confirm-button")).click(); // клик на кнопке куки
     }
-    public void clickOrderButton(){
-        webDriver.findElement(By.className("Button_Button__ra12g")).click();
+    public void clickOrderButtonByPosition(String position){
+        webDriver.findElement(By.xpath("(//button[text() = 'Заказать'])["+position+"]")).click();
     }
-
+    public void clickOrderButton(){
+        webDriver.findElement(By.xpath("(//button[text() = 'Заказать'])[1]")).click();
+    }
     public void clickQuestion1(){
         webDriver.findElement(By.id("accordion__heading-0")).click(); // клик на первый вопрос
     }

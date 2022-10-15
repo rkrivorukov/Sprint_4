@@ -48,7 +48,7 @@ public class OrderPage {
     public void enterDate(String date){
         webDriver.findElement(By.cssSelector("[placeholder='* Когда привезти самокат']"))
                 .sendKeys(date);
-        webDriver.findElement(By.className("Order_Header__BZXOb")).click(); //закрытие дайтпикера
+        webDriver.findElement(By.xpath("//*[@class = 'Header_Header__214zg']")).click(); //закрытие дайтпикера
 
     }
 
