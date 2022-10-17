@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 public class QuestionsTests {
 
-    MainPage mainPage = null;
+    MainPage mainPage;
 
-    WebDriver webDriver = null;
+    WebDriver webDriver;
     WebDriverWait webDriverWait;
     @Before
     public void setUp() throws Exception

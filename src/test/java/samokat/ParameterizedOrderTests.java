@@ -65,9 +65,9 @@ public class ParameterizedOrderTests {
         };
 
     }
-    WebDriver webDriver = null;
-    MainPage mainPage = null;
-    OrderPage orderPage = null;
+    WebDriver webDriver;
+    MainPage mainPage;
+    OrderPage orderPage;
     WebDriverWait webDriverWait;
     @Before
     public void setUp() throws Exception
@@ -116,8 +116,11 @@ public class ParameterizedOrderTests {
 
         orderPage.clickYesButtonInModel();
 
+        Assert.assertTrue("надпись заказ оформлен не отобразилсь",
+                orderPage.isDisplayedOrderMade());
         Assert.assertTrue("кнопка да не отобразилась",
                 orderPage.isDisplayedLookStatusButtonInModel());
+
 
     }
 
